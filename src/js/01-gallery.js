@@ -12,7 +12,7 @@ console.log(galleryItems);
 const galleryItemsEl = document.querySelector('.gallery');
 
 const selectorGallery = ({ preview, original, description }) =>
-  `<a class="gallery__item" href="${original}">
+ `<a class="gallery__item" href="${original}">
   <img class="gallery__image" src="${preview}" alt="${description}" />
 </a>`;
 const createGalleryMarkup = galleryItems.map(selectorGallery).join('');
