@@ -5,6 +5,7 @@ const STORAGE_KEY = 'feedback-form-state';
 const formData = {};
 
 form.addEventListener('input', throttle(onFormInput, 500));
+
 form.addEventListener('submit', onFormSubmit);
 
 updateForm();
@@ -26,9 +27,9 @@ function updateForm() {
 
   if (saveInput) {
     saveInput = JSON.parse(saveInput);
+    Object.assign(formData, saveInput);
+    Object.entries(saveInput).forEach(([name, value]) => (form.elements[name].value = value));
   } else {
     return;
-  }
-
-  Object.entries(saveInput).forEach(([name, value]) => (form.elements[name].value = value));
+  }  
 }
